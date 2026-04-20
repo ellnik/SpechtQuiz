@@ -50,13 +50,13 @@ public class QuizFrame extends JFrame {
      * @return das Hauptpanel der Anwendung
      */
     private AppPanel buildMainPanel() {
-//        AppPanel rootPanel = new AppPanel(new BorderLayout(0, 15));
-//        rootPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-//        rootPanel.setBackground(new Color(245, 245, 245));
+   //  AppPanel rootPanel = new AppPanel(new BorderLayout(0, 15));
+   //  rootPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+   //  rootPanel.setBackground(new Color(245, 245, 245));
     	
     	RootPanel rootPanel = new RootPanel();
 
-//        rootPanel.add(new HeaderPanel(), BorderLayout.NORTH);
+      // rootPanel.add(new HeaderPanel(), BorderLayout.NORTH);
         rootPanel.add(buildCenterPanel(), BorderLayout.CENTER);
 
         return rootPanel;
@@ -68,11 +68,12 @@ public class QuizFrame extends JFrame {
      * @return das mittlere Panel mit Frage, Antworten und unterem Bereich
      */
     private JPanel buildCenterPanel() {
-//        AppPanel centerPanel = new AppPanel(new BorderLayout(0, 15));
+   //     AppPanel centerPanel = new AppPanel(new BorderLayout(0, 15));
 
+    	
     	QuizPanel centerPanel = new QuizPanel();
-//        centerPanel.add(new QuestionPanel(), BorderLayout.NORTH);
-//        centerPanel.add(new AnswerPanel(), BorderLayout.CENTER);
+       // centerPanel.add(new QuestionPanel(), BorderLayout.NORTH);
+       // centerPanel.add(new AnswerPanel(), BorderLayout.CENTER);
         centerPanel.add(buildBottomSection(), BorderLayout.SOUTH);
 
         return centerPanel;
@@ -84,11 +85,11 @@ public class QuizFrame extends JFrame {
      * @return das untere Panel
      */
     private JPanel buildBottomSection() {
-//        AppPanel bottomPanel = new AppPanel(new BorderLayout(0, 15));
+       // AppPanel bottomPanel = new AppPanel(new BorderLayout(0, 15));
 
     	InfoPanel bottomPanel = new InfoPanel();
-//        bottomPanel.add(new ResultPanel(), BorderLayout.NORTH);
-//        bottomPanel.add(new InfoPanel(), BorderLayout.CENTER);
+       // bottomPanel.add(new ResultPanel(), BorderLayout.NORTH);
+       // bottomPanel.add(new InfoPanel(), BorderLayout.CENTER);
 
         return bottomPanel;
     }

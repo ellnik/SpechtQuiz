@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 import de.example.quizui.panel.HeaderPanel;
 import de.example.quizui.ui.AppPanel;
 
-public class RootPanel extends AppPanel{
+public class RootPanel extends AppPanel {
 
 	public RootPanel() {
 		super(new BorderLayout(0, 15));
@@ -22,9 +22,9 @@ public class RootPanel extends AppPanel{
 
 	public RootPanel(LayoutManager layout) {
 		super(layout);
-		// TODO Auto-generated constructor stub
+		
 	}
-	
-	
 
+	        
+	     
 }

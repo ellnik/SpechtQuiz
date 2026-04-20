@@ -1,6 +1,7 @@
 package de.example.quizui.frame;
 
 import java.awt.BorderLayout;
+import java.awt.LayoutManager;
 
 import de.example.quizui.panel.AnswerPanel;
 import de.example.quizui.panel.QuestionPanel;
@@ -13,7 +14,7 @@ public class QuizPanel extends AppPanel {
 		add(new QuestionPanel(), BorderLayout.NORTH);
 		add(new AnswerPanel(), BorderLayout.CENTER);
 	}
-	
+
 	
 
 }
