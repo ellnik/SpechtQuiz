@@ -24,6 +24,7 @@ public class AnswerPanel extends AppPanel {
     public AnswerPanel() {
         initializePanel();
         buildLayout();
+        setBackground(Color.CYAN);
     }
 
     /**
