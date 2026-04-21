@@ -1,5 +1,6 @@
 package panel.quiz;
 
+import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.element.AppRadioButton;
 
@@ -24,7 +25,7 @@ public class AnswerPanel extends AppPanel {
     public AnswerPanel() {
         initializePanel();
         buildLayout();
-        setBackground(Color.CYAN);
+        
     }
 
     /**
@@ -32,7 +33,7 @@ public class AnswerPanel extends AppPanel {
      */
     private void initializePanel() {
         setLayout(new GridLayout(4, 1, 0, 18));
-        setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+        setBorder(UIConstants.AP_EMPTY_BORDER);
         setBackground(Color.WHITE);
     }
 

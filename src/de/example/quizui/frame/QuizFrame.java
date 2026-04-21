@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppPanel;
 
 import java.awt.BorderLayout;
@@ -26,7 +27,8 @@ import java.awt.Dimension;
  */
 public class QuizFrame extends JFrame {
 
-    /**
+
+	/**
      * Erstellt das Hauptfenster und initialisiert alle enthaltenen GUI-Bereiche.
      */
     public QuizFrame() {
@@ -39,9 +41,9 @@ public class QuizFrame extends JFrame {
      * Initialisiert die grundlegenden Fenstereigenschaften.
      */
     private void initializeFrame() {
-        setTitle("Quiz Oberfläche");
+        setTitle(UIConstants.APP_TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(900, 800));
+        setSize(UIConstants.FRAME_DIMENSION);
         setLocationRelativeTo(null);
         setResizable(true);
     }

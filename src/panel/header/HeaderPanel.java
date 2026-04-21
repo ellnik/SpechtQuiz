@@ -1,10 +1,13 @@
 package panel.header;
 
+import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppLabel;
 import de.example.quizui.element.AppPanel;
 
 import javax.swing.BorderFactory;
 import javax.swing.SwingConstants;
+import javax.swing.border.CompoundBorder;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -31,10 +34,9 @@ public class HeaderPanel extends AppPanel {
      */
     private void initializePanel() {
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
-                BorderFactory.createEmptyBorder(10, 15, 10, 15)
-        ));
+   //     
+       
+        setBorder(UIConstants.HP_COMPOUD_BORDER);
         setBackground(Color.WHITE);
     }
 
