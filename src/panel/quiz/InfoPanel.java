@@ -1,7 +1,7 @@
-package de.example.quizui.panel;
+package panel.quiz;
 
-import de.example.quizui.ui.AppLabel;
-import de.example.quizui.ui.AppPanel;
+import de.example.quizui.element.AppLabel;
+import de.example.quizui.element.AppPanel;
 
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
