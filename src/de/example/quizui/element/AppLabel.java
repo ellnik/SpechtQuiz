@@ -1,6 +1,9 @@
 package de.example.quizui.element;
 
 import javax.swing.JLabel;
+
+import de.example.quizui.UIConstants;
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -36,12 +39,12 @@ public class AppLabel extends JLabel {
 
     /**
      * Initialisiert gemeinsame Basiseigenschaften des Labels.
-     */
-    private void initialize() {
-        setForeground(new Color(35, 35, 35));
-        setFont(new Font("SansSerif", Font.PLAIN, 18));
+   
+    protected void initialize() {
+        setForeground(UIConstants.TEXT_COLOR_STANDART);
+        setFont(UIConstants.FONT_TEXT);
     }
-
+  */
     /**
      * Setzt Schriftstil und Schriftgröße des Labels.
      *
@@ -49,6 +52,6 @@ public class AppLabel extends JLabel {
      * @param size Schriftgröße
      */
     public void setAppFontStyle(int style, int size) {
-        setFont(new Font("SansSerif", style, size));
+        //setFont(new Font("SansSerif", style, size));
     }
 }
