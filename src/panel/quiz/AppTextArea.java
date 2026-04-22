@@ -9,8 +9,12 @@ public class AppTextArea extends JTextArea {
 
 	public AppTextArea() {
 		super();
+		initialize();
+	}
 		
-		setLineWrap(true);
+	private void initialize() {	
+	
+	this.setLineWrap(true);
         setWrapStyleWord(true);
         setEditable(false);
         setFont(new Font("SansSerif", Font.PLAIN, 18));
