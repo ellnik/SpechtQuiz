@@ -7,10 +7,8 @@ import java.awt.LayoutManager;
 
 /**
  * Generalisierte Basisklasse für Panels der Anwendung.
- * <p>
  * Diese Klasse kapselt gemeinsame Grundeinstellungen wie Hintergrundfarbe
  * und Standard-Innenabstand.
- * </p>
  */
 public class AppPanel extends JPanel {
 

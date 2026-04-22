@@ -5,7 +5,7 @@ import de.example.quizui.element.AppPanel;
 
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -40,26 +40,22 @@ public class InfoPanel extends AppPanel {
      */
     private void buildLayout() {
         AppLabel infoLabel = new AppLabel("Info:");
-        infoLabel.setAppFontStyle(Font.BOLD, 20);
 
-        JTextArea infoArea = buildInfoArea();
+        AppTextArea infoArea = new AppTextArea();
         JScrollPane scrollPane = new JScrollPane(infoArea);
 
         add(infoLabel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);
     }
+  }
 
-    /**
-     * Erstellt und initialisiert das Textfeld für den Informationsbereich.
-     *
-     * @return konfigurierte TextArea für Informationen
-     */
-    private JTextArea buildInfoArea() {
+   //Dies all soll in den Konstruktor der neuen Klasse AppTextArea
+  /*  private JTextArea buildInfoArea() {
         JTextArea infoArea = new JTextArea();
         infoArea.setLineWrap(true);
         infoArea.setWrapStyleWord(true);
         infoArea.setEditable(false);
-        infoArea.setFont(new Font("SansSerif", Font.PLAIN, 18));
+       // infoArea.setFont(new Font("SansSerif", Font.PLAIN, 18));
         infoArea.setBackground(Color.WHITE);
         infoArea.setText(
                 "Klassen in Java können beliebig viele Methoden enthalten.\n"
@@ -69,4 +65,5 @@ public class InfoPanel extends AppPanel {
         );
         return infoArea;
     }
-}
+    */
+

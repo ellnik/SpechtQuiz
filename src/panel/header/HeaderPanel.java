@@ -15,10 +15,8 @@ import java.awt.Font;
 
 /**
  * Panel für den oberen Kopfbereich der Oberfläche.
- * <p>
  * Es zeigt den aktuellen Fragenfortschritt sowie die Anzahl
  * der richtig beantworteten Fragen an.
- * </p>
  */
 public class HeaderPanel extends AppPanel {
 
@@ -35,8 +33,6 @@ public class HeaderPanel extends AppPanel {
      */
     private void initializePanel() {
         setLayout(new BorderLayout());
-   //     
-       
         setBorder(UIConstants.HP_COMPOUD_BORDER);
         setBackground(Color.WHITE);
     }
@@ -46,11 +42,8 @@ public class HeaderPanel extends AppPanel {
      */
     private void buildLayout() {
         AppBigLabel questionCounterLabel = new AppBigLabel("Frage 10 / 16");
-       // questionCounterLabel.setAppFontStyle(Font.PLAIN, 28);
 
         AppBigLabel scoreLabel = new AppBigLabel("Richtig: 2 / 10", SwingConstants.RIGHT);
-    //   scoreLabel.setAppFontStyle(Font.BOLD, 28);
-      //  scoreLabel.setForeground(new Color(0, 120, 90));
 
         add(questionCounterLabel, BorderLayout.WEST);
         add(scoreLabel, BorderLayout.EAST);

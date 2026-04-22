@@ -17,7 +17,7 @@ public abstract class UIConstants {
 	public static final Font FONT_HEADER = new Font("Calibri", Font.PLAIN, 30);
 	
 	//Farben 
-	public static final Color TEXT_COLOR_STANDART = Color.RED;
+	public static final Color TEXT_COLOR_STANDART = Color.BLUE;
 	public static final Color TEXT_COLOR_SUCCESS = Color.GREEN;
 	public static final Color TEXT_COLOR_ERROR = Color.RED;
 	
@@ -30,7 +30,7 @@ public abstract class UIConstants {
 	
 	//QuestionPanel_Konstanten
 	public static final MatteBorder QP_MATTE_BORDER = BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(180, 180, 180));
-	public static final Border QP_EMPTY_BORDER = (MatteBorder) BorderFactory.createEmptyBorder(20, 20, 20, 20);
+	public static final Border QP_EMPTY_BORDER = BorderFactory.createEmptyBorder(20, 20, 20, 20);
 	
     //AnswerPanel _ KOnstanten
 	public static final Border AP_EMPTY_BORDER = BorderFactory.createEmptyBorder(20, 30, 20, 30);

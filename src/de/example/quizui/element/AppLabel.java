@@ -9,10 +9,8 @@ import java.awt.Font;
 
 /**
  * Generalisierte Basisklasse für Labels der Anwendung.
- * <p>
  * Diese Klasse kapselt gemeinsame Darstellungsmerkmale wie Standardfarbe
  * und Standardschrift.
- * </p>
  */
 public class AppLabel extends JLabel {
 
@@ -36,22 +34,13 @@ public class AppLabel extends JLabel {
         super(text, horizontalAlignment);
         initialize();
     }
-
-    /**
-     * Initialisiert gemeinsame Basiseigenschaften des Labels.
+ 
+     //Initialisiert gemeinsame Basiseigenschaften des Labels.
    
     protected void initialize() {
         setForeground(UIConstants.TEXT_COLOR_STANDART);
         setFont(UIConstants.FONT_TEXT);
     }
-  */
-    /**
-     * Setzt Schriftstil und Schriftgröße des Labels.
-     *
-     * @param style Schriftstil gemäß {@link Font}
-     * @param size Schriftgröße
-     */
-    public void setAppFontStyle(int style, int size) {
-        //setFont(new Font("SansSerif", style, size));
-    }
+  
+
 }

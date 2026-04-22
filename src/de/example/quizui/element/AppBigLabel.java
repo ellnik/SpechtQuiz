@@ -7,6 +7,9 @@ public class AppBigLabel extends AppLabel {
 	public AppBigLabel(String text) {
 		super(text);
 	}
+	 public AppBigLabel(String string, int right) {
+		super(string, right);
+	}
 	 /**
      * Initialisiert gemeinsame Basiseigenschaften des Labels.
      */
