@@ -1,4 +1,4 @@
-package de.example.quizdata;
+package de.example.quizdata.objects;
 
 public class DataManager {
 	

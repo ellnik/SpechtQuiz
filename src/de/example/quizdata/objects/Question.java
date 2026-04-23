@@ -1,4 +1,4 @@
-package de.example.quizdata;
+package de.example.quizdata.objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,9 @@ public class Question {
 	
 	private String text;
 	private String info;
+	/*
+	 * Aggregation (Sammlung) der Instanzen der Klasse Answer, bzw der Answer-Objekte.
+	 */
 	private List<Answer> answers;
 	
 	public Question(String text) {

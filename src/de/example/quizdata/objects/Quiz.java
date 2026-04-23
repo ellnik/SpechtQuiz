@@ -1,4 +1,4 @@
-package de.example.quizdata;
+package de.example.quizdata.objects;
 
 import java.util.ArrayList;
 import java.util.List;
