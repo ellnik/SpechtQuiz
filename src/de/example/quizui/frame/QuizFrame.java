@@ -10,6 +10,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import de.example.quizdata.FakeDataManager;
+import de.example.quizdata.QuizDataManager;
+import de.example.quizdata.objects.Quiz;
 import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppPanel;
 
@@ -33,7 +36,9 @@ public class QuizFrame extends JFrame {
      */
     public QuizFrame() {
         initializeFrame();
-        add(new RootPanel());
+        QuizDataManager mng = new FakeDataManager(); 
+        Quiz quiz = mng.getQuiz();
+        add(new RootPanel(quiz)); // Das Panel, das den Quiz anzeigt, bekommt nun die
         setVisible(true);
     }
 
