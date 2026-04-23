@@ -13,6 +13,12 @@ public class DataManager {
         q1.addAnswer("sie", false);
         q1.addAnswer("er", false);
 		
+        
+        Question q2 = new Question("Was ist das?");
+		q2.addAnswer("das", false);
+        q2.addAnswer("es", false);
+        q2.addAnswer("sie", true);
+        q2.addAnswer("er", false);
 		return quiz;
 		
 	}

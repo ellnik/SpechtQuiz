@@ -22,11 +22,20 @@ public class FakeDataManager implements QuizDataManager {
         int fragenAnzahl = 4; // Wir erstellen mehrere (fragenAnzahl) Fakefragen
         int antwortenAnzahl = 4; // Zu jeder Frage erstellen wir mehrere (antwortenAnzahl) Fakeantworten
         Random zufall = new Random();
-        int zufallsJ; // Index der richtigen Frage. Wird zufällig festgelegt.
+        int zufallsJ; // Index der richtigen Antwort. Wird zufällig festgelegt.
 
         for (int i = 0; i < fragenAnzahl; i++) {
-            Question frage = new Question("Frage " + i); // Eine neue Frage
-
+            Question frage = new Question("Frage " + (i + 1)); // Eine neue Frage
+            q.addQuestion(frage);// die Frage zum Quiz hinzufügen
+           //-------------------------------------------
+            //Die Klasse Question hat den Konstruktor: public Question(String text)
+            //Der Konstruktoraufruf: new Question ("Frage" + (i + 1))
+            //Operator: new 
+            //Instanz : new Question ("Frage " + (i +1))
+            //Instanz auf die Variable speichern: frage = new Question (Frage" + (i +)1)
+            //Somit ist die lokale Variable frage auch eine Instanz der Klasse Question
+            //-------------------------------------------------------
+            
             zufallsJ = zufall.nextInt(antwortenAnzahl); // Zufallsindex der richtigen Antwort
 
             for (int j = 0; j < antwortenAnzahl; j++) {

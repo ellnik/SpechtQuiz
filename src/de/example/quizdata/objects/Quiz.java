@@ -1,3 +1,4 @@
+
 package de.example.quizdata.objects;
 
 import java.util.ArrayList;
