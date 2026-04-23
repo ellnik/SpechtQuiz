@@ -25,8 +25,10 @@ public class FakeDataManager implements QuizDataManager {
         int zufallsJ; // Index der richtigen Antwort. Wird zufällig festgelegt.
 
         for (int i = 0; i < fragenAnzahl; i++) {
-            Question frage = new Question("Frage " + (i + 1)); // Eine neue Frage
+            Question frage = new Question("Frage " + i); // Eine neue Frage
             q.addQuestion(frage);// die Frage zum Quiz hinzufügen
+            
+            
            //-------------------------------------------
             //Die Klasse Question hat den Konstruktor: public Question(String text)
             //Der Konstruktoraufruf: new Question ("Frage" + (i + 1))

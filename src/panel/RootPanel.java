@@ -20,8 +20,10 @@ public class RootPanel extends AppPanel {
 		setBackground(new Color(245, 245, 245));
 		
 		add(new HeaderPanel(), BorderLayout.NORTH);
-		
-		Question question = quiz.getQuestions().get(0);
+		Question question = null;
+		if(quiz.getQuestions() != null && quiz.getQuestions().size() > 0)
+			
+		question = quiz.getQuestions().get(0);
 		add(new QuizPanel(question), BorderLayout.CENTER);
 	}
 

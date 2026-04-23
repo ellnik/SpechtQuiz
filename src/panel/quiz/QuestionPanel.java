@@ -14,13 +14,16 @@ import java.awt.Font;
  */
 public class QuestionPanel extends AppPanel {
 
-    /**
+    private AppLabel questionLabel;
+
+	/**
      * Erstellt das Fragen-Panel.
      * @param text 
      */
     public QuestionPanel(String text) {
         initializePanel();
         buildLayout();
+        questionLabel.setText(text);
     }
 
     /**
@@ -40,7 +43,7 @@ public class QuestionPanel extends AppPanel {
      * Baut die enthaltenen Komponenten des Panels auf.
      */
     private void buildLayout() {
-        AppLabel questionLabel = new AppLabel(
+         questionLabel = new AppLabel(
                 "<html>Wie viele Methoden<br>kann eine Klasse haben?</html>"
         );
         //questionLabel.setAppFontStyle(Font.PLAIN, 34);

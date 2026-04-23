@@ -18,7 +18,7 @@ public class Quiz {
 
 	public void addQuestion(Question question) {
         
-        if(question ==null)
+        if(question != null)
         questions = new ArrayList<Question>();
         questions.add(question);
     }
