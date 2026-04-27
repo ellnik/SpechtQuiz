@@ -7,6 +7,7 @@ public class Question {
 	
 	private String text;
 	private String info;
+	private String subject;
 	/*
 	 * Aggregation (Sammlung) der Instanzen der Klasse Answer, bzw der Answer-Objekte.
 	 */
@@ -22,6 +23,11 @@ public class Question {
 		this.info = info;
 	}
 	
+	public Question(String text, String info, String subject) {
+		this.text = text;
+		this.info = info;
+		this.subject = subject;
+	}
 	public void addAnswer(Answer answer) {
 		
 		if(answers == null)
@@ -56,6 +62,14 @@ public class Question {
 
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
 
