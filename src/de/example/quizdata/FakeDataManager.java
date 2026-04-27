@@ -4,51 +4,54 @@ import java.util.Random;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
+import de.example.quizdata.objects.Subject;
+
 
 public class FakeDataManager implements QuizDataManager {
+ 
+	@Override
 
-    @Override
-    public Quiz getQuiz() {
+	public Quiz getQuiz() {
+ 
+		Quiz quiz = createFirstQuiz();
+		return quiz;
 
-        Quiz quiz = createFirstQuiz();
-        return quiz;
-    }
+	}	
+ 
+	/**
 
-    private Quiz createFirstQuiz() {
+	 * Erzeugt ein Fake-Quiz.<br>
+	 * 
+	 * @return Quiz-Object
+	 */
 
-        Quiz q = new Quiz("Java Bingo");
-        // TODO: 1. vier Fragen, 2. je Frage vier Antworten
+	private Quiz createFirstQuiz() {
+ 
+		Quiz q = new Quiz("Java Bingo");
+		
+		int fragenAnzahl = 4; 
+		int antwortenAnzahl = 4; 
+		Random zufall = new Random();
 
-        int fragenAnzahl = 4; // Wir erstellen mehrere (fragenAnzahl) Fakefragen
-        int antwortenAnzahl = 4; // Zu jeder Frage erstellen wir mehrere (antwortenAnzahl) Fakeantworten
-        Random zufall = new Random();
-        int zufallsJ; // Index der richtigen Antwort. Wird zufällig festgelegt.
+		int zufallsJ;
+		for (int i = 0; i < fragenAnzahl; i++) {
 
-        for (int i = 0; i < fragenAnzahl; i++) {
-            Question frage = new Question("Frage " + i); // Eine neue Frage
-            q.addQuestion(frage);// die Frage zum Quiz hinzufügen
-            
-            
-           //-------------------------------------------
-            //Die Klasse Question hat den Konstruktor: public Question(String text)
-            //Der Konstruktoraufruf: new Question ("Frage" + (i + 1))
-            //Operator: new 
-            //Instanz : new Question ("Frage " + (i +1))
-            //Instanz auf die Variable speichern: frage = new Question (Frage" + (i +)1)
-            //Somit ist die lokale Variable frage auch eine Instanz der Klasse Question
-            //-------------------------------------------------------
-            
-            zufallsJ = zufall.nextInt(antwortenAnzahl); // Zufallsindex der richtigen Antwort
+			Question frage = new Question("Question " + i); 
+			q.addQuestion(frage);
+			frage.setSubject(new Subject("Subject"));
+			zufallsJ = zufall.nextInt(antwortenAnzahl);
 
-            for (int j = 0; j < antwortenAnzahl; j++) {
-                if (j == zufallsJ)
-                    frage.addAnswer("Richtige Antwort " + j, true); // Eine richtige Antwort zur Frage hinzufügen
-                else
-                    frage.addAnswer("Falsche Antwort " + j, false); // Alle anderen Antworten sind falsche Antworten
-            }
-        }
+			for (int j = 0; j < antwortenAnzahl; j++) {
+				if (j == zufallsJ)
+					frage.addAnswer("Answer " + j, true);
+				else
+					frage.addAnswer("Answer " + j, false); 
+			}
+		}
 
-        return q;
-    }
+		return q;
+
+	}
 }
-   
+
+    
