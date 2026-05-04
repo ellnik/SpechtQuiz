@@ -10,16 +10,13 @@ import de.example.quizdata.objects.Subject;
 public class FakeDataManager implements QuizDataManager {
  
 	@Override
-
 	public Quiz getQuiz() {
  
 		Quiz quiz = createFirstQuiz();
 		return quiz;
-
 	}	
  
 	/**
-
 	 * Erzeugt ein Fake-Quiz.<br>
 	 * 
 	 * @return Quiz-Object

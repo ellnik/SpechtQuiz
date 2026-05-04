@@ -22,7 +22,7 @@ public class DataManager {
 		q2.addAnswer("Nein", true);
         q2.addAnswer("Ja, nur paar Meter ", false);
         q2.addAnswer("sie", false);
-        q2.addAnswer("er", false);
+        q2.addAnswer("Ja", false);
         
         
         quiz.addQuestion(q1);
