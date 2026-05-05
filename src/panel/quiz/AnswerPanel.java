@@ -1,5 +1,6 @@
 package panel.quiz;
 
+import de.example.quizdata.objects.Answer;
 import de.example.quizui.UIConstants;
 import de.example.quizui.element.AppPanel;
 import de.example.quizui.element.AppRadioButton;
@@ -8,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.List;
 
 /**
  * Panel für die Anzeige der auswählbaren Antwortoptionen.
@@ -21,8 +23,9 @@ public class AnswerPanel extends AppPanel {
 
     /**
      * Erstellt das Antwort-Panel.
+     * @param list 
      */
-    public AnswerPanel() {
+    public AnswerPanel(List<Answer> list) {
         initializePanel();
         buildLayout();
         

@@ -1,69 +1,99 @@
 package panel.quiz;
 
-import de.example.quizui.element.AppLabel;
-import de.example.quizui.element.AppPanel;
-
-import javax.swing.BorderFactory;
-import javax.swing.JScrollPane;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.UIManager;
+
+import de.example.quizui.UIConstants;
+import de.example.quizui.element.AppButton;
+import de.example.quizui.element.AppPanel;
+
 
 /**
  * Panel für zusätzliche Informationen zur aktuellen Frage oder Antwort.
  */
-public class InfoPanel extends AppPanel {
+public class InfoPanel extends AppPanel implements ActionListener{
 
-    /**
-     * Erstellt das Info-Panel.
-     */
-    public InfoPanel() {
-        initializePanel();
-        buildLayout();
-    }
+	AppTextArea infoArea = new AppTextArea();
 
-    /**
-     * Initialisiert Layout, Rahmen und Hintergrund des Panels.
-     */
-    private void initializePanel() {
-        setLayout(new BorderLayout(0, 10));
-        setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
-                BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
-        setBackground(Color.WHITE);
-    }
+	/**
+	 * Erstellt das Info-Panel.
+	 * 
+	 * @param info
+	 */
+	public InfoPanel(String info) {
+		initializePanel();
+		buildLayout();
+		infoArea.setText(info);
+		infoArea.setVisible(false);
+	}
 
-    /**
-     * Baut die enthaltenen Komponenten des Panels auf.
-     */
-    private void buildLayout() {
-        AppLabel infoLabel = new AppLabel("Info:");
+	/**
+	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
+	 */
+	private void initializePanel() {
+		setLayout(new BorderLayout(0, 10));
+		setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(new Color(180, 180, 180), 1),
+				BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+		setBackground(Color.WHITE);
+	}
 
-        AppTextArea infoArea = new AppTextArea();
-        JScrollPane scrollPane = new JScrollPane(infoArea);
+	/**
+	 * Baut die enthaltenen Komponenten des Panels auf.
+	 */
+	private void buildLayout() {
+		
+		AppButton buttonHint = new AppButton("Info anzeigen");
+		buttonHint.addActionListener(this);
+		buttonHint.setActionCommand("Info");
+		
+		AppButton buttonNext = new AppButton("Nächste Frage");
+		buttonNext.addActionListener(this);
+		buttonNext.addActionListener(e -> nextQuestion());
+		
+		add(buttonHint, BorderLayout.WEST);
+		add(buttonNext, BorderLayout.EAST);
+	
+		JScrollPane scrollPane = new JScrollPane(infoArea);
+		add(scrollPane, BorderLayout.SOUTH);
+	}
+	
+	private void nextQuestion() {
+		
+		// TODO heute: Nächste Frage Anzeigen
+		UIManager.put("OptionPane.background", Color.DARK_GRAY);
+		UIManager.put("Panel.background", Color.DARK_GRAY);
+		UIManager.put("OptionPane.messageForeground", Color.WHITE);
+		UIManager.put("OptionPane.messageFont", UIConstants.FONT_TEXT);
+		UIManager.put("Button.background", Color.WHITE);
+		UIManager.put("Button.foreground", Color.BLACK);
+		UIManager.put("Button.focusable", false);
+		JOptionPane.showMessageDialog(this, "Noch nicht implementiert!");
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		String command = e.getActionCommand();
+		
+		if (command.equals("Info")) {
+			infoArea.setVisible(true);
+		}
+	}
+}
 
-        add(infoLabel, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
-    }
-  }
 
-   //Dies all soll in den Konstruktor der neuen Klasse AppTextArea
-  /*  private JTextArea buildInfoArea() {
-        JTextArea infoArea = new JTextArea();
-        infoArea.setLineWrap(true);
-        infoArea.setWrapStyleWord(true);
-        infoArea.setEditable(false);
-       // infoArea.setFont(new Font("SansSerif", Font.PLAIN, 18));
-        infoArea.setBackground(Color.WHITE);
-        infoArea.setText(
-                "Klassen in Java können beliebig viele Methoden enthalten.\n"
-                        + "Die Anzahl ist grundsätzlich nicht fachlich auf 1, 64 oder 0 begrenzt.\n\n"
-                        + "Diese Oberfläche bildet nur das Mockup nach.\n"
-                        + "Logik, Auswertung und Persistenz sind bewusst nicht enthalten."
-        );
-        return infoArea;
-    }
-    */
+
+
+
+
 

@@ -28,7 +28,7 @@ public class MyButtonPanel extends JPanel {
 		button = new MyButton("Klick");
 		add(button, BorderLayout.CENTER);
 //		button.addActionListener(_ -> buttonWasClicked());
-		button.addActionListener(_-> delegate.updateAfterButtonPanelChanged(++count));
+		button.addActionListener(e-> delegate.updateAfterButtonPanelChanged(++count));
 	}
 
 	/**

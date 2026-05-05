@@ -32,7 +32,7 @@ public class AppPanel extends JPanel {
     /**
      * Initialisiert gemeinsame Basiseigenschaften des Panels.
      */
-    private void initialize() {
+    protected void initialize() {
         setOpaque(true);
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

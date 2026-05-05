@@ -22,8 +22,9 @@ public class HeaderPanel extends AppPanel {
 
     /**
      * Erstellt das Kopfbereich-Panel.
+     * @param questionCount 
      */
-    public HeaderPanel() {
+    public HeaderPanel(int questionCount) {
         initializePanel();
         buildLayout();
     }
