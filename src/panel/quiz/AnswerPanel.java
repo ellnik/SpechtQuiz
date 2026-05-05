@@ -65,10 +65,17 @@ public class AnswerPanel extends AppPanel {
 		AppRadioButton rb = (AppRadioButton) e.getSource();
 		
 		System.out.println(rb.getText() + "ist " + correct);
-			rb.setForeground(correct ? Color.GREEN : Color.RED);
-		
-		
+			
+		if(correct)
+		rb.setForeground(Color.GREEN );
+		else {
+			rb.setForeground(Color.RED);
 		}
-		
+		for(int i = 0; i < radioButtons.size(); i++) {
+			
+			if(list.get(i).isCorrect())
+				radioButtons.get(i).setForeground(Color.GREEN);
+		}
+		}
 	}
-}
+	}
