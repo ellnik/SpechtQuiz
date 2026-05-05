@@ -9,7 +9,7 @@ import java.awt.Font;
  */
 public class AppRadioButton extends JRadioButton {
 
-    /**
+	   /**
      * Erstellt einen Radio-Button mit Text.
      *
      * @param text anzuzeigender Text

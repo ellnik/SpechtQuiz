@@ -30,29 +30,30 @@ import java.awt.Dimension;
  */
 public class QuizFrame extends JFrame {
 
+	/**
+	 * Erstellt das Hauptfenster und initialisiert alle enthaltenen GUI-Bereiche.
+	 */
+	public QuizFrame() {
+		initializeFrame();
+		
+// Ein Quiz holen:
+		QuizDataManager mng = new FakeDataManager();
+		Quiz quiz = mng.getQuiz();
+		
+//	Das Panel, das den Quiz anzeigt, bekommt nun die Daten.
+		add(new RootPanel(quiz)); 
+		setVisible(true);
+	}
 
 	/**
-     * Erstellt das Hauptfenster und initialisiert alle enthaltenen GUI-Bereiche.
-     */
-    public QuizFrame() {
-        initializeFrame();
-        QuizDataManager mng = new FakeDataManager(); 
-        Quiz quiz = mng.getQuiz();
-        add(new RootPanel(quiz)); // Das Panel, das den Quiz anzeigt, bekommt nun die
-        setVisible(true);
-    }
+	 * Initialisiert die grundlegenden Fenstereigenschaften.
+	 */
+	private void initializeFrame() {
+		setTitle(UIConstants.APP_TITLE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(UIConstants.FRAME_DIMENSION);
+		setLocationRelativeTo(null);
+		setResizable(true);
+	}
 
-    /**
-     * Initialisiert die grundlegenden Fenstereigenschaften.
-     */
-    private void initializeFrame() {
-        setTitle(UIConstants.APP_TITLE);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(UIConstants.FRAME_DIMENSION);
-        setLocationRelativeTo(null);
-        setResizable(true);
-    }
-
-  
- 
 }

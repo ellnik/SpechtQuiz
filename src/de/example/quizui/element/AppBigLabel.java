@@ -7,14 +7,18 @@ public class AppBigLabel extends AppLabel {
 	public AppBigLabel(String text) {
 		super(text);
 	}
-	 public AppBigLabel(String string, int right) {
+
+	   public AppBigLabel(String string, int right) {
 		super(string, right);
 	}
-	 /**
+
+	   /**
      * Initialisiert gemeinsame Basiseigenschaften des Labels.
      */
-	protected void initialize() {
-        setForeground(UIConstants.TEXT_COLOR_STANDART);
+    protected void initialize() {
+        setForeground(UIConstants.TEXT_COLOR_STANDARD);
         setFont(UIConstants.FONT_HEADER);
     }
+
+
 }

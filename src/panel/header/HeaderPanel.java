@@ -15,38 +15,40 @@ import java.awt.Font;
 
 /**
  * Panel für den oberen Kopfbereich der Oberfläche.
- * Es zeigt den aktuellen Fragenfortschritt sowie die Anzahl
- * der richtig beantworteten Fragen an.
+ * <p>
+ * Es zeigt den aktuellen Fragenfortschritt sowie die Anzahl der richtig
+ * beantworteten Fragen an.
+ * </p>
  */
 public class HeaderPanel extends AppPanel {
 
-    /**
-     * Erstellt das Kopfbereich-Panel.
-     * @param questionCount 
-     */
-    public HeaderPanel(int questionCount) {
-        initializePanel();
-        buildLayout();
-    }
+	AppBigLabel questionCounterLabel;
+	/**
+	 * Erstellt das Kopfbereich-Panel.
+	 * @param count = Anzahl der Fragen im Quiz
+	 */
+	public HeaderPanel(int count) {
+		initializePanel();
+		buildLayout(count);
+	}
 
-    /**
-     * Initialisiert Layout, Rahmen und Hintergrund des Panels.
-     */
-    private void initializePanel() {
-        setLayout(new BorderLayout());
-        setBorder(UIConstants.HP_COMPOUD_BORDER);
-        setBackground(Color.WHITE);
-    }
+	/**
+	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
+	 */
+	private void initializePanel() {
+		setLayout(new BorderLayout());
+		setBorder(UIConstants.HP_COMPOUD_BORDER);
+		setBackground(Color.WHITE);
+	}
 
-    /**
-     * Baut die enthaltenen Komponenten des Panels auf.
-     */
-    private void buildLayout() {
-        AppBigLabel questionCounterLabel = new AppBigLabel("Frage 10 / 16");
+	/**
+	 * Baut die enthaltenen Komponenten des Panels auf.
+	 */
+	private void buildLayout(int count) {
+		questionCounterLabel = new AppBigLabel("Frage 1");
+		AppBigLabel scoreLabel = new AppBigLabel("Richtig: 0 / " + count, SwingConstants.RIGHT);
 
-        AppBigLabel scoreLabel = new AppBigLabel("Richtig: 2 / 10", SwingConstants.RIGHT);
-
-        add(questionCounterLabel, BorderLayout.WEST);
-        add(scoreLabel, BorderLayout.EAST);
-    }
+		add(questionCounterLabel, BorderLayout.WEST);
+		add(scoreLabel, BorderLayout.EAST);
+	}
 }
