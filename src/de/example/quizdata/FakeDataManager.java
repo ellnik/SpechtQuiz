@@ -27,7 +27,7 @@ public class FakeDataManager implements QuizDataManager {
 
 		Answer ans = new Answer("Lokale Variable", false);
 		quest.addAnswer(ans);
-		ans = new Answer("Instanzariable", false);
+		ans = new Answer("Instanzvariable", false);
 		quest.addAnswer(ans);
 		ans = new Answer("Laufvariable", false);
 		quest.addAnswer(ans);

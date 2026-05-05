@@ -16,7 +16,7 @@ public class AppTextArea extends JTextArea {
     	
        this.setLineWrap(true);
        setWrapStyleWord(true);
-       setEditable(false);
+       setEditable(false); //editieren редактировать
        setFont(new Font("SansSerif", Font.PLAIN, 18));
        setBackground(Color.WHITE);
        setText(

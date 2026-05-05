@@ -52,13 +52,20 @@ public class InfoPanel extends AppPanel {
 		
 		AppButton buttonHint = new AppButton("Info anzeigen");
 		buttonHint.setActionCommand("Info");
+		buttonHint.addActionListener(e -> {
+			infoArea.setVisible(true);
+			});
 		
 		AppButton buttonNext = new AppButton("Nächste Frage");
-		
-		add(buttonHint, BorderLayout.WEST);
 		add(buttonNext, BorderLayout.EAST);
+		buttonNext.addActionListener(e -> nextQuestion());
 	
+		infoArea = new AppTextArea();
 		JScrollPane scrollPane = new JScrollPane(infoArea);
 		add(scrollPane, BorderLayout.SOUTH);
+	}
+	private void nextQuestion() {
+		
+		JOptionPane.showMessageDialog(null, "Noch nicht da");
 	}
 }
