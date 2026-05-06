@@ -34,7 +34,7 @@ public class InfoPanel extends AppPanel {
 		initializePanel();
 		buildLayout();
 		infoArea.setText(info);
-		infoArea.setVisible(true);
+		infoArea.setVisible(false);
 	}
 	
 
@@ -55,6 +55,7 @@ public class InfoPanel extends AppPanel {
 	private void buildLayout() {
 		
 		AppButton buttonHint = new AppButton("Info anzeigen");
+		add(buttonHint, BorderLayout.WEST);
 		buttonHint.setActionCommand("Info");
 		buttonHint.addActionListener(e -> {
 			infoArea.setVisible(true);
