@@ -29,7 +29,8 @@ public class QuestionPanel extends AppPanel {
 		buildLayout();
 		subjectLabel.setText(subjecttitle);
 		questionLabel.setText(questiontext);
-	}
+		
+		}
 
 	/**
 	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
@@ -48,5 +49,10 @@ public class QuestionPanel extends AppPanel {
 
 		add(subjectLabel, BorderLayout.NORTH);
 		add(questionLabel, BorderLayout.SOUTH);
+	}
+
+	public void showNextQuestion(String text) {
+		questionLabel.setText(text);
+		
 	}
 }

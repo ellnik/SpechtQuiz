@@ -7,6 +7,8 @@ import de.example.quizui.element.AppRadioButton;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -59,9 +61,30 @@ public class AnswerPanel extends AppPanel {
 		}
 
 	}
+	
+public void showNextQuestion(List<Answer> answers) {
+	     //    this.list = answers;	
+	
+	         for(int i = 0; i < radioButtons.size(); i ++) {
+			AppRadioButton radioButton = radioButtons.get(i);
+			Answer ans = answers.get(i);
+			
+			radioButton.setText(ans.getText());
+	//		radioButton.setForeground(Color.RED);
+	        radioButton.setSelected(false);
+		}
+		
+	}
+	private boolean answered = false;
+	
 	public void checkAnswer(ActionEvent e, boolean correct) {
-				
-		if(e.getSource() instanceof AppRadioButton) {
+		if(e.getSource() instanceof AppRadioButton) {		
+		if(answered) {
+			JOptionPane.showMessageDialog(null, 
+					"Du hast die Antwort bereits ausgewählt; -) \n Neue Wahl wird nicht berücksichtigt.");
+					return;
+		}
+		answered = true;
 		AppRadioButton rb = (AppRadioButton) e.getSource();
 					
 		if(correct)
@@ -73,7 +96,10 @@ public class AnswerPanel extends AppPanel {
 			
 			if(list.get(i).isCorrect())
 				radioButtons.get(i).setForeground(Color.GREEN);
+			
 		}
 		}
 	}
-	}
+
+
+}
