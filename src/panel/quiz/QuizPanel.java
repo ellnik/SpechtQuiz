@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizui.element.AppPanel;
+import panel.header.HeaderPanel;
 
 public class QuizPanel extends AppPanel{
 
@@ -16,7 +17,7 @@ public class QuizPanel extends AppPanel{
 	private QuestionPanel questionPanel;
 	private AnswerPanel answerPanel;
 	
-	public QuizPanel(List<Question> questions) {
+	public QuizPanel(List<Question> questions, HeaderPanel header) {
 		super(new BorderLayout(0, 15));
 		this.questions = questions;
 		
@@ -29,6 +30,7 @@ public class QuizPanel extends AppPanel{
 		add(questionPanel, BorderLayout.NORTH);
 		
 		answerPanel = new AnswerPanel(question.getAnswers());
+		answerPanel.setListener(header);
 		add(answerPanel, BorderLayout.CENTER);
 				
 		infoPanel = new InfoPanel(question.getInfo());

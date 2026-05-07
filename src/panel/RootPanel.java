@@ -6,6 +6,7 @@ import java.util.List;
 
 import de.example.quizdata.objects.Question;
 import de.example.quizdata.objects.Quiz;
+import de.example.quizui.QuizState;
 import de.example.quizui.element.AppPanel;
 import panel.header.HeaderPanel;
 import panel.quiz.QuizPanel;
@@ -23,6 +24,7 @@ public class RootPanel extends AppPanel {
 		super(new BorderLayout(0, 15));
 
 		int questionCount = quiz.getQuestions().size();
+		QuizState.questionCount = questionCount;
 		
 		headerPanel = new HeaderPanel(questionCount);
 		add(headerPanel, BorderLayout.NORTH);
@@ -33,7 +35,7 @@ public class RootPanel extends AppPanel {
 		
 		List<Question> liste = quiz.getQuestions();
 		
-		quizPanel = new QuizPanel(liste);
+		quizPanel = new QuizPanel(liste, headerPanel);
 		add(quizPanel, BorderLayout.CENTER);
 		
 		
