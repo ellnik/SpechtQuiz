@@ -1,3 +1,4 @@
+
 package de.example.quizdata;
 
 import java.util.Random;
@@ -47,6 +48,16 @@ public class FakeDataManager implements QuizDataManager {
 		quest.addAnswer(new Answer("String", false));
 		quest.setInfo(
 				"Bei der Deklaration einer Methode muss der Datentyp des Rückgabewertes benannt werden.");
+		
+		quest = new Question("Was wird mit einem Konstruktor konstruiert?");
+		java.addQuestion(quest);
+
+		quest.addAnswer(new Answer("Klasse", false));
+		quest.addAnswer(new Answer("Instanz", true));
+		quest.addAnswer(new Answer("Methode", false));
+		quest.addAnswer(new Answer("Feld", false));
+		quest.setInfo("new Constructor()");
+
 
 		return java;
 	}
