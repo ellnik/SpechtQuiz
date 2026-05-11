@@ -16,10 +16,12 @@ public class QuizPanel extends AppPanel{
 	InfoPanel infoPanel;
 	private QuestionPanel questionPanel;
 	private AnswerPanel answerPanel;
+	private HeaderPanel header;
 	
 	public QuizPanel(List<Question> questions, HeaderPanel header) {
 		super(new BorderLayout(0, 15));
 		this.questions = questions;
+		this.header = header;
 			
 		
 		//TODO check for questions == null and questions.size() == 0;
@@ -47,9 +49,8 @@ public class QuizPanel extends AppPanel{
 		//Fragetext auf dem AnswerPanel austauschen
 		questionPanel.showNextQuestion(nextQuestion.getText());
 		
-		
-		//Aufgabe: Answers auf dem AnswerPanel austauschen
 		answerPanel.showNextQuestion(nextQuestion.getAnswers());
+		header.updateQuestionCounter();
 
 	}
 }

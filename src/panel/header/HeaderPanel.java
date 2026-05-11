@@ -26,10 +26,12 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 	
 	AppBigLabel questionCounterLabel;
 	private AppBigLabel scoreLabel;
-	private String scoreString = "Rictig: %d von %d";
+	private String scoreString = "Richtig: %d von %d";
+	 private String questionString = "Frage %d";
 	
 	private int count;
 	private int correctAnswered = 0;
+	private int currentQuestion = 1;
 	/**
 	 * Erstellt das Kopfbereich-Panel.
 	 * @param count = Anzahl der Fragen im Quiz
@@ -37,27 +39,27 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 	public HeaderPanel(int count) {
 		this.count = count;
 		initializePanel();
-		buildLayout(count);
+		buildLayout();
 	}
 
-	/**
-	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
-	 */
 	private void initializePanel() {
 		setLayout(new BorderLayout());
 		setBorder(UIConstants.HP_COMPOUD_BORDER);
 		setBackground(Color.WHITE);
 	}
 
-	/**
-	 * Baut die enthaltenen Komponenten des Panels auf.
-	 */
-	private void buildLayout(int count) {
-		questionCounterLabel = new AppBigLabel("Frage 1");
-		 scoreLabel = new AppBigLabel(scoreString.formatted(correctAnswered, count), SwingConstants.RIGHT);
+	private void buildLayout() {
+		questionCounterLabel =  new AppBigLabel(questionString.formatted(currentQuestion) );		
+		scoreLabel = new AppBigLabel(scoreString.formatted(correctAnswered, count), SwingConstants.RIGHT);
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
+	}
+	
+	public void updateQuestionCounter() {
+		++currentQuestion;
+		  questionCounterLabel.setText(questionString.formatted(currentQuestion));
+		 
 	}
 
 	@Override
