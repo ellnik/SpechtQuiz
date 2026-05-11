@@ -20,8 +20,7 @@ public class QuizPanel extends AppPanel{
 	public QuizPanel(List<Question> questions, HeaderPanel header) {
 		super(new BorderLayout(0, 15));
 		this.questions = questions;
-		
-		
+			
 		
 		//TODO check for questions == null and questions.size() == 0;
 		Question question = questions.get(0);
@@ -31,7 +30,6 @@ public class QuizPanel extends AppPanel{
 		
 		answerPanel = new AnswerPanel(question.getAnswers());
 	     answerPanel.setListener(header);
-	//	answerPanel.listener = header;
 		add(answerPanel, BorderLayout.CENTER);
 				
 		infoPanel = new InfoPanel(question.getInfo());

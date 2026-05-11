@@ -23,14 +23,19 @@ import java.awt.Font;
  * </p>
  */
 public class HeaderPanel extends AppPanel implements AnswerPanelListener{
-
+	
 	AppBigLabel questionCounterLabel;
 	private AppBigLabel scoreLabel;
+	private String scoreString = "Rictig: %d von %d";
+	
+	private int count;
+	private int correctAnswered = 0;
 	/**
 	 * Erstellt das Kopfbereich-Panel.
 	 * @param count = Anzahl der Fragen im Quiz
 	 */
 	public HeaderPanel(int count) {
+		this.count = count;
 		initializePanel();
 		buildLayout(count);
 	}
@@ -49,7 +54,7 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 	 */
 	private void buildLayout(int count) {
 		questionCounterLabel = new AppBigLabel("Frage 1");
-		 scoreLabel = new AppBigLabel("Richtig: 0 / " + count, SwingConstants.RIGHT);
+		 scoreLabel = new AppBigLabel(scoreString.formatted(correctAnswered, count), SwingConstants.RIGHT);
 
 		add(questionCounterLabel, BorderLayout.WEST);
 		add(scoreLabel, BorderLayout.EAST);
@@ -57,6 +62,6 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 
 	@Override
 	public void upDateScore() {
-		scoreLabel.setText("Juhiiii");
+		scoreLabel.setText(scoreString.formatted(++correctAnswered, count));
 	}
 }
