@@ -13,4 +13,5 @@ Hinweise:
 - Layout-Aufbau in separaten Methoden
 - Alle Klassen mit Javadoc versehen
 Result: https://github.com/ellnik/SpechtQuiz/blob/main/screen2.png
+        https://github.com/ellnik/SpechtQuiz/blob/main/skreen1.png
         
