@@ -9,48 +9,86 @@ import de.example.quizdata.objects.Question;
 import de.example.quizui.element.AppPanel;
 import panel.header.HeaderPanel;
 
-public class QuizPanel extends AppPanel{
+/**
+ * Hauptpanel für das Quiz.
+ */
+public class QuizPanel extends AppPanel {
 
-	
-	List<Question> questions;
-	InfoPanel infoPanel;
-	private QuestionPanel questionPanel;
-	private AnswerPanel answerPanel;
-	private HeaderPanel header;
-	
-	public QuizPanel(List<Question> questions, HeaderPanel header) {
-		super(new BorderLayout(0, 15));
-		this.questions = questions;
-		this.header = header;
-			
-		
-		//TODO check for questions == null and questions.size() == 0;
-		Question question = questions.get(0);
-		
-		questionPanel = new QuestionPanel(question.getSubject().getTitle(), question.getText());
-		add(questionPanel, BorderLayout.NORTH);
-		
-		answerPanel = new AnswerPanel(question.getAnswers());
-	     answerPanel.setListener(header);
-		add(answerPanel, BorderLayout.CENTER);
-				
-		infoPanel = new InfoPanel(question.getInfo());
-		add(infoPanel, BorderLayout.SOUTH);
-		infoPanel.chef = this;
-	}
+    private List<Question> questions;
 
-	public void pleaseNextQuestion() {
-	//	JOptionPane.showMessageDialog(null, "Mach ich gleich");
-		
-		Question nextQuestion = questions.get(1);
-		
-		infoPanel.showNextQuestion(nextQuestion.getInfo());
-		
-		//Fragetext auf dem AnswerPanel austauschen
-		questionPanel.showNextQuestion(nextQuestion.getText());
-		
-		answerPanel.showNextQuestion(nextQuestion.getAnswers());
-		header.updateQuestionCounter();
+    private InfoPanel infoPanel;
+    private QuestionPanel questionPanel;
+    private AnswerPanel answerPanel;
 
-	}
+    private HeaderPanel header;
+
+    private int questionNumber = 0;
+
+    public QuizPanel(List<Question> questions, HeaderPanel header) {
+
+        super(new BorderLayout(0, 15));
+
+        this.questions = questions;
+        this.header = header;
+
+        // Erste Frage holen
+        Question question = questions.get(0);
+
+        // QuestionPanel
+        questionPanel = new QuestionPanel(question.getText());
+        add(questionPanel, BorderLayout.NORTH);
+
+        // AnswerPanel
+        answerPanel = new AnswerPanel(question.getAnswers());
+        answerPanel.setListener(header);
+
+        add(answerPanel, BorderLayout.CENTER);
+
+        // InfoPanel
+        infoPanel = new InfoPanel(question.getInfo());
+        add(infoPanel, BorderLayout.SOUTH);
+
+        infoPanel.chef = this;
+    }
+
+    /**
+     * Zeigt die nächste Frage an.
+     */
+    public void pleaseNextQuestion() {
+
+        // Prüfen ob letzte Frage erreicht wurde
+        if(questionNumber == questions.size() - 1) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Game over\nKeine weiteren Fragen"
+            );
+
+            return;
+        }
+
+        // Zur nächsten Frage wechseln
+        questionNumber++;
+
+        // Neue Frage holen
+        Question nextQuestion = questions.get(questionNumber);
+
+        // Header aktualisieren
+        header.updateQuestionNumber(questionNumber);
+
+        // Info aktualisieren
+        infoPanel.showNextQuestion(
+                nextQuestion.getInfo()
+        );
+
+        // Frage aktualisieren
+        questionPanel.showNextQuestion(
+                nextQuestion.getText()
+        );
+
+        // Antworten aktualisieren
+        answerPanel.showNextQuestion(
+                nextQuestion.getAnswers()
+        );
+    }
 }

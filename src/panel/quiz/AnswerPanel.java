@@ -80,6 +80,8 @@ public void showNextQuestion(List<Answer> answers) {
 			Answer ans = answers.get(i);
 			
 			radioButton.setAnswer(ans);
+	        radioButton.setForeground(Color.BLACK);
+
 			  
 		}
 		

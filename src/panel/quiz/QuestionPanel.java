@@ -5,18 +5,30 @@ import de.example.quizui.element.AppLabel;
 import de.example.quizui.element.AppPanel;
 
 import javax.swing.BorderFactory;
+import javax.swing.JTextArea;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+
+import de.example.quizdata.objects.Question;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 
-import de.example.quizdata.objects.Question;
+import javax.swing.BorderFactory;
+
+import de.example.quizui.UIConstants;
+import de.example.quizui.element.AppLabel;
+import de.example.quizui.element.AppPanel;
 
 /**
  * Panel für die Anzeige der aktuellen Frage.
  */
 public class QuestionPanel extends AppPanel {
 
-	private AppLabel subjectLabel = new AppLabel("");
-	private AppLabel questionLabel = new AppLabel("");
+	//private AppLabel questionLabel = new AppLabel("");
+	private JTextArea questionArea = new JTextArea();
 
 	/**
 	 * Erstellt das Fragen-Panel.
@@ -24,13 +36,11 @@ public class QuestionPanel extends AppPanel {
 	 * @param subjecttitle
 	 * @param questiontext
 	 */
-	public QuestionPanel(String subjecttitle, String questiontext) {
+	public QuestionPanel( String questiontext) {
 		initializePanel();
 		buildLayout();
-		subjectLabel.setText(subjecttitle);
-		questionLabel.setText(questiontext);
-		
-		}
+		questionArea.setText(questiontext);
+	}
 
 	/**
 	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
@@ -47,12 +57,16 @@ public class QuestionPanel extends AppPanel {
 	 */
 	private void buildLayout() {
 
-		add(subjectLabel, BorderLayout.NORTH);
-		add(questionLabel, BorderLayout.SOUTH);
-	}
-
+		  questionArea.setLineWrap(true);
+		   questionArea.setWrapStyleWord(true);
+		    questionArea.setEditable(false);
+		    questionArea.setFocusable(false);
+		    questionArea.setBackground(Color.WHITE);
+		    questionArea.setFont(new Font("Arial", Font.PLAIN, 24));		   
+		    add(questionArea, BorderLayout.CENTER);
+		}
 	public void showNextQuestion(String text) {
-		questionLabel.setText(text);
+		questionArea.setText(text);
 		
 	}
 }
