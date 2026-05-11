@@ -38,6 +38,10 @@ public class AppRadioButton extends JRadioButton {
     	setForeground(Color.BLACK);
     	setText(answer.getText());
     }
+	public Answer getAnswer() {
+		return answer;
+	}
+	
 }
 
 

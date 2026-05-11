@@ -24,7 +24,6 @@ public class AnswerPanel extends AppPanel {
 	
 	private AnswerPanelListener listener;
 
-	List<Answer> list;
 	List<AppRadioButton> radioButtons;
 	ButtonGroup buttonGroup;
 
@@ -35,19 +34,15 @@ public class AnswerPanel extends AppPanel {
 	 */
 	public AnswerPanel(List<Answer> list) {
 
-		this.list = list;
 		radioButtons = new ArrayList <AppRadioButton>(list.size());
 		initializePanel();
-		buildLayout();
+		buildLayout(list);
 	}
 
 	public AnswerPanelListener getListener() {
 		return listener;
 	}
 
-	public void setListener(AnswerPanelListener listener) {
-		this.listener = listener;
-	}
 
 	/**
 	 * Initialisiert Layout, Rahmen und Hintergrund des Panels.
@@ -61,7 +56,7 @@ public class AnswerPanel extends AppPanel {
 	/**
 	 * Baut die Antwortoptionen des Panels auf.
 	 */
-	private void buildLayout() {
+	private void buildLayout(List<Answer>list) {
 		 buttonGroup = new ButtonGroup();
 		
 		for (Answer answer : list) {
@@ -76,47 +71,54 @@ public class AnswerPanel extends AppPanel {
 	}
 	
 public void showNextQuestion(List<Answer> answers) {
-	     //    this.list = answers;	
-	         answered = false;
+	        	
+	     answered = false;
 	        buttonGroup.clearSelection();
-	         for(int i = 0; i < radioButtons.size(); i ++) {
+	        
+	        for(int i = 0; i < radioButtons.size(); i ++) {
 			AppRadioButton radioButton = radioButtons.get(i);
 			Answer ans = answers.get(i);
 			
 			radioButton.setAnswer(ans);
-			
+			  
 		}
 		
 	}
 	private boolean answered = false;
 	
 	public void checkAnswer(ActionEvent e) {
-		if(e.getSource() instanceof AppRadioButton) {		
-		if(answered) {
-			JOptionPane.showMessageDialog(null, 
-					"Du hast die Antwort bereits ausgewählt; -) \n Neue Wahl wird nicht berücksichtigt.");
-					return;
-		}
-		answered = true;
-		AppRadioButton rb = (AppRadioButton) e.getSource();
-					
-		if(rb.isCorrect()) {
-		rb.setForeground(Color.GREEN );
-		listener.upDateScore();
-		
-		
-		}
-		else {
-			rb.setForeground(Color.RED);
-		}
-		for(int i = 0; i < radioButtons.size(); i++) {
-			
-			if(list.get(i).isCorrect())
-				radioButtons.get(i).setForeground(Color.GREEN);
-			
-		}
-		}
+
+	    if(e.getSource() instanceof AppRadioButton) {
+	        if(answered) {
+	            JOptionPane.showMessageDialog(
+	                null,
+	                "Du hast die Antwort bereits ausgewählt; -)\nNeue Wahl wird nicht berücksichtigt."   );
+	            return;
+	        }
+
+	        answered = true;
+	        AppRadioButton rb = (AppRadioButton) e.getSource();
+
+	        if(rb.isCorrect()) {
+	            rb.setForeground(Color.GREEN);
+
+	            if(listener != null) {
+	                listener.upDateScore();
+	            }
+
+	        } else {
+	            rb.setForeground(Color.RED);
+	            for(AppRadioButton arb : radioButtons) {
+
+	                if(arb.getAnswer().isCorrect()) {
+	                    arb.setForeground(Color.GREEN);
+	                }
+	            }
+	        }
+	    }
 	}
 
-
+	public void setListener(AnswerPanelListener listener) {
+	    this.listener = listener;
+	}
 }

@@ -57,6 +57,6 @@ public class HeaderPanel extends AppPanel implements AnswerPanelListener{
 
 	@Override
 	public void upDateScore() {
-		System.out.println("in updatescore");
+		scoreLabel.setText("Juhiiii");
 	}
 }
